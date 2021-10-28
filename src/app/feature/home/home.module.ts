@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { FavoriteComponent } from './favorite/favorite.component';
-import { CardComponent } from './card/card.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
+import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({

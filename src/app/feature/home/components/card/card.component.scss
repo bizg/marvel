@@ -1,0 +1,39 @@
+.container_character {
+  border: 1px solid #000;
+  width: 48%;
+  float: left;
+}
+
+.container_character .container_img,
+.container_character .container_text {
+  float: left;
+}
+
+.container_character .container_img img{
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+
+.container_character .container_text {
+  width: 50%;
+}
+
+.container_character .container_footer {
+  width: 100%;
+}
+
+.header {
+  width: 100%;
+}
+
+.header .content_h2 {
+  display: inline-block;
+  width: 49%;
+}
+
+.header .content_select {
+  display: inline-block;
+  text-align: right;
+  width: 49%;
+}
