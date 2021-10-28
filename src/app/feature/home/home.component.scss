@@ -1,9 +1,9 @@
 .container_card {
-  float: left;
-  width: 80%;
+  display: inline-block;
+  width: 75%;
 }
 
 .container_favorite {
-  float: left;
-  width: 20;
+  display: inline-block;
+  width: 25%;
 }

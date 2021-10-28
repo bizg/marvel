@@ -1,1 +1,10 @@
-<p>favorite works!</p>
+<div *ngIf="!favorites || favorites.length == 0">
+  Without favorites
+</div>
+<div *ngIf="favorites && favorites.length > 0">
+  <div class="header-comic" *ngFor="let item of favorites">
+    <img src="assets/images/btn-delete.png" alt="trash" (click)="delete(item.id)">
+    <img src="{{item.thumbnail.path}}/portrait_incredible.{{item.thumbnail.extension}}" alt="{{item.thumbnail.path}}">
+    <span>{{ item.title }}</span>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http } from '@core/modelo/http.model';
 import { ValidService } from '@core/services/valid.service';
@@ -17,6 +17,11 @@ export class CharacterService {
 
   get(): Observable<Http> {
     let hash = this.valid.generateHash();
-    return this.http.get<Http>(`${environment.api}v1/public/characters?ts=${environment.ts}&apikey=${environment.publicKey}&hash=${hash}`)
+    const params = new HttpParams()
+        .set('ts', environment.ts)
+        .set('apikey', environment.publicKey)
+        .set('hash', hash)
+        // .set('limit', limit)
+    return this.http.get<Http>(`${environment.api}v1/public/characters`, {params})
   }
 }

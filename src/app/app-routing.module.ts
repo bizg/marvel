@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('@home/home.module').then(mod => mod.HomeModule)
   },
   {
-    path: 'favorite',
+    path: 'favorites',
     loadChildren: () => import('@favorite/favorite.module').then(mod => mod.FavoriteModule)
   },
   {
@@ -19,7 +19,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
