@@ -10,6 +10,7 @@ import { CharacterService } from '@home/shared/services/character/character.serv
 export class CardComponent implements OnInit {
 
   characters!: Character[];
+  record!: Character;
 
   constructor(
     private apiCharacter: CharacterService
@@ -24,6 +25,10 @@ export class CardComponent implements OnInit {
       this.characters = <any>response?.data?.results;
       console.log(response.data.results);
     });
+  }
+
+  getOne() {
+
   }
 
 }

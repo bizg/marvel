@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'stream';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -8,12 +7,9 @@ import { EventEmitter } from 'stream';
 })
 export class ModalComponent implements OnInit {
 
-  @Input() title!: string;
-  @Input() description!: string;
-  @Input() image!: string;
+  @Input() record!: any;
   @Input() isComic!: boolean;
-  @Input() id!: number;
-  @Output() data = new EventEmitter();
+  @Output() data? = new EventEmitter();
   modal: boolean = false;
 
   constructor() { }
@@ -27,6 +23,9 @@ export class ModalComponent implements OnInit {
 
   close() {
     this.modal = false;
+    if(this.isComic) {
+      this.data?.emit(this.record);
+    }
   }
 
 }

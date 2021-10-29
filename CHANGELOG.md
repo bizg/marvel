@@ -16,6 +16,7 @@ straightforward as possible.
 - Added the functionality of add random favorites
 - Added the modal component
 - Added the functionality of modal component
+- Added the implementation of modal component in the home module
  
 ### Changed
 - Changed in the menu the item favorites, now it's acceded since home in the option "View all"
