@@ -4,7 +4,7 @@ export interface Http {
     count?: number;
     limit?: number;
     offset?: number;
-    results: object;
+    results: any;
     total?: number;
   };
   status: string;

@@ -17,6 +17,7 @@ straightforward as possible.
 - Added the modal component
 - Added the functionality of modal component
 - Added the implementation of modal component in the home module
+  - Added the implementation in card.component
 - Added the http.service for control the options in the petitions http
 - Added the implementation of http.service in the each one of the services
  

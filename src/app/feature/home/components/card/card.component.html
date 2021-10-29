@@ -15,7 +15,7 @@
   <div class="container_text">
     <h4>{{ item.name }}</h4>
     <p>{{ item.description || 'Without description' }}</p>
-    <a>VIEW MORE</a>
+    <a (click)="getOne(item.id)">VIEW MORE</a>
   </div>
   <div class="container_footer">
     <h5>Related comics</h5>
@@ -29,4 +29,4 @@
 </div>
 
 
-<app-modal [record]="record"></app-modal>
+<app-modal></app-modal>

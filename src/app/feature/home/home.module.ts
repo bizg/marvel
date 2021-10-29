@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { CardComponent } from './components/card/card.component';
 import { SharedModule } from '@shared/shared.module';
+import { ModalComponent } from '@shared/components/modal/modal.component';
 
 
 @NgModule({
@@ -18,6 +19,9 @@ import { SharedModule } from '@shared/shared.module';
     CommonModule,
     HomeRoutingModule,
     SharedModule
+  ],
+  providers: [
+    ModalComponent
   ]
 })
 export class HomeModule { }
