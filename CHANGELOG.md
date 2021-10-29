@@ -15,8 +15,12 @@ straightforward as possible.
 - Added the module home, this contain the cars of characters and the favorites comics
 - Added the functionality of add random favorites
 - Added the component modal
+- Added the http.service for control the options in the petitions http
+- Added the implementation of http.service in the each one of the services
  
 ### Changed
 - Changed in the menu the item favorites, now it's acceded since home in the option "View all"
  
 ### Fixed
+- Deleted the files of favorite.service that doesn't use in anyway
+- Added the corrections of the http.services when any service sended a param crashed
