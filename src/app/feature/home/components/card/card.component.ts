@@ -37,4 +37,12 @@ export class CardComponent implements OnInit {
     });
   }
 
+  sortData(sort: Event) {
+    console.log((<HTMLInputElement>sort.target).value);
+    this.apiCharacter.getSortBy((<HTMLInputElement>sort.target).value).subscribe(response => {
+      this.characters = <any>response?.data?.results;
+      console.log(response.data.results);
+    });
+  }
+
 }
