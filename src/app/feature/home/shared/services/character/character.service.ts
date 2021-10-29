@@ -14,7 +14,10 @@ export class CharacterService {
   ) { }
 
   get(): Observable<Http> {
-    return this.http.doGet(`${environment.api}v1/public/characters`);
+    let params = {
+      limit: environment.limitCharacters
+    };
+    return this.http.doGet(`${environment.api}v1/public/characters`, {params});
   }
 
   getOne(id: number): Observable<Http> {
@@ -23,7 +26,8 @@ export class CharacterService {
 
   getSortBy(sort: string): Observable<Http> {
     let params = {
-      orderBy: sort
+      orderBy: sort,
+      limit: environment.limitCharacters
     };
     return this.http.doGet(`${environment.api}v1/public/characters`, {params});
   }

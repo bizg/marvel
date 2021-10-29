@@ -22,6 +22,7 @@ straightforward as possible.
 - Added the http.service for control the options in the petitions http
 - Added the implementation of http.service in the each one of the services
 - Added the sort by name (asc, desc)
+- Added limit of registers of characters to 10
  
 ### Changed
 - Changed in the menu the item favorites, now it's acceded since home in the option "View all"
