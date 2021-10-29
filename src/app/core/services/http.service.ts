@@ -34,7 +34,7 @@ export class HttpService {
       headers: config.headers,
       params: {
         ...config.params,
-        options
+        ...options.params,
       }
     } : config;
     return this.http.get<Http>(url, opts);
