@@ -14,7 +14,8 @@ straightforward as possible.
 - Added the structure of project
 - Added the module home, this contain the cars of characters and the favorites comics
 - Added the functionality of add random favorites
-- Added the component modal
+- Added the modal component
+- Added the functionality of modal component
  
 ### Changed
 - Changed in the menu the item favorites, now it's acceded since home in the option "View all"
