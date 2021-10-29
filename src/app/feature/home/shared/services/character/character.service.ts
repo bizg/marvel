@@ -21,4 +21,11 @@ export class CharacterService {
     return this.http.doGet(`${environment.api}v1/public/characters/${id}`);
   }
 
+  getSortBy(sort: string): Observable<Http> {
+    let params = {
+      orderBy: sort
+    };
+    return this.http.doGet(`${environment.api}v1/public/characters`, {params});
+  }
+
 }
