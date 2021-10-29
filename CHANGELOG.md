@@ -17,8 +17,12 @@ straightforward as possible.
 - Added the modal component
 - Added the functionality of modal component
 - Added the implementation of modal component in the home module
+- Added the http.service for control the options in the petitions http
+- Added the implementation of http.service in the each one of the services
  
 ### Changed
 - Changed in the menu the item favorites, now it's acceded since home in the option "View all"
  
 ### Fixed
+- Deleted the files of favorite.service that doesn't use in anyway
+- Added the corrections of the http.services when any service sended a param crashed
