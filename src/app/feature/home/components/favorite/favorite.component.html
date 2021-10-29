@@ -10,7 +10,7 @@
 <div class="comics" *ngIf="favorites && favorites.length > 0">
   <div class="header-comic" *ngFor="let item of favorites">
     <img src="assets/images/btn-delete.png" alt="trash" (click)="delete(item.id)">
-    <img src="{{item.thumbnail.path}}/portrait_incredible.{{item.thumbnail.extension}}" alt="{{item.thumbnail.path}}">
+    <img src="{{item.thumbnail.path}}/portrait_incredible.{{item.thumbnail.extension}}" alt="{{item.thumbnail.path}}" (click)="getOne(item.id)">
     <span>{{ item.title }}</span>
   </div>
   <div class="footer-comic">
@@ -20,3 +20,5 @@
     </a>
   </div>
 </div>
+
+<app-modal></app-modal>

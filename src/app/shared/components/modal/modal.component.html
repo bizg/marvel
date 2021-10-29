@@ -1,17 +1,21 @@
-<div class="modal">
+<div class="modal" [ngClass]="{'show': modal, 'hide': !modal}">
   <div class="modal-dialog">
     <div class="modal-header">
       <div class="modal-close">
-        <img src="assets/images/btn-close.png" alt="">
+        <img src="assets/images/btn-close.png" alt="" (click)="close()">
       </div>
     </div>
     <div class="modal-body">
       <div class="modal-body-img">
-        <img src="http://i.annihil.us/u/prod/marvel/i/mg/3/a0/50b38855e480d/portrait_incredible.jpg" alt="foro">
+        <img src="{{ image }}" alt="foro">
       </div>
       <div class="modal-body-text">
-        <h2>ALL-NEW, ALL-DIFFERENT AVENGERS(2015) #1.1</h2>
-        <P>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim delectus repellendus nulla sunt eveniet corporis maxime reiciendis! Illum, incidunt aperiam cupiditate nulla sapiente, molestias iste, iure vitae nesciunt quisquam explicabo.</P>
+        <h2>{{ isComic ? record?.title : record?.name }}</h2>
+        <p>{{ record?.description || 'Without description' }}</p>
+        <a [routerLink]="['/comics/:id']" *ngIf="!isComic">
+          View all comics
+          <img src="assets/images/link-arrow.png" alt="link_arrow">
+        </a>
       </div>
     </div>
     <div class="modal-footer">

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Character } from '@home/shared/model/character.model';
 import { CharacterService } from '@home/shared/services/character/character.service';
+import { ModalComponent } from '@shared/components/modal/modal.component';
 
 @Component({
   selector: 'app-card',
@@ -10,9 +11,11 @@ import { CharacterService } from '@home/shared/services/character/character.serv
 export class CardComponent implements OnInit {
 
   characters!: Character[];
+  record!: Character;
+  @ViewChild(ModalComponent) modal!: ModalComponent;
 
   constructor(
-    private apiCharacter: CharacterService
+    private apiCharacter: CharacterService,
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +26,14 @@ export class CardComponent implements OnInit {
     this.apiCharacter.get().subscribe(response => {
       this.characters = <any>response?.data?.results;
       console.log(response.data.results);
+    });
+  }
+
+  getOne(id:number) {
+    this.apiCharacter.getOne(id).subscribe(response => {
+      const [character] = response?.data?.results;
+      this.record = character;
+      this.modal.open(this.record, false);
     });
   }
 

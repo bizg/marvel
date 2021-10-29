@@ -16,4 +16,9 @@ export class CharacterService {
   get(): Observable<Http> {
     return this.http.doGet(`${environment.api}v1/public/characters`);
   }
+
+  getOne(id: number): Observable<Http> {
+    return this.http.doGet(`${environment.api}v1/public/characters/${id}`);
+  }
+
 }

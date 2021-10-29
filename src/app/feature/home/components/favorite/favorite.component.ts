@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ComicService } from '@home/shared/services/comic/comic.service';
 import { FavoriteService } from '@home/shared/services/favorite/favorite.service';
+import { ModalComponent } from '@shared/components/modal/modal.component';
 
 @Component({
   selector: 'app-favorite',
@@ -11,6 +12,7 @@ export class FavoriteComponent implements OnInit {
 
   comics: any;
   favorites: any;
+  @ViewChild(ModalComponent) modal!: ModalComponent;
 
   constructor(
     private apiComics: ComicService,
@@ -30,6 +32,12 @@ export class FavoriteComponent implements OnInit {
 
   get() {
     this.favorites = JSON.parse(localStorage.getItem('favorites')!);
+  }
+
+  getOne(id:number) {
+      const [record] = this.favorites.filter((e: {id: number}) => e.id == id);
+      console.log(record);
+      this.modal.open(record, true);
   }
 
   delete(id:number) {
