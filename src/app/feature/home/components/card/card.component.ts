@@ -33,7 +33,6 @@ export class CardComponent implements OnInit {
     this.apiCharacter.getOne(id).subscribe(response => {
       const [character] = response?.data?.results;
       this.record = character;
-      console.log(this.record);
       this.modal.open(this.record, false);
     });
   }
