@@ -27,7 +27,7 @@ export class FavoriteComponent implements OnInit {
 
   getRandom() {
     this.apiComics.getRandom(this.apiFavorite.getStringDate()).subscribe(response => {
-      localStorage.setItem('favorites', JSON.stringify(response.data.results));
+      this.apiFavorite.setRandom(response);
       this.get();
     });
   }

@@ -33,6 +33,7 @@ straightforward as possible.
  
 ### Changed
 - Changed in the menu the item favorites, now it's acceded since home in the option "View all"
+- Chanded implementation of "random favorite", now you can add in anytime some random rafovorite
  
 ### Fixed
 - Deleted the files of favorite.service that doesn't use in anyway

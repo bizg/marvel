@@ -29,6 +29,15 @@ export class FavoriteService {
     }
   }
 
+  setRandom(response: any): void {
+    let favorites = JSON.parse(localStorage.getItem('favorites')!) || [];
+    for (let i = 0; i < response.data.results.length; i++) {
+      favorites = [...favorites,response.data.results[i]]
+    }
+    localStorage.removeItem('favorites');
+    localStorage.setItem('favorites',JSON.stringify(favorites));
+  }
+
   randomDate(date1:string, date2:string): string{
     let newDate1 = (new Date(date1).getTime()).toString();
     let newDate2 = (new Date(date2).getTime()).toString();
