@@ -23,6 +23,8 @@ straightforward as possible.
 - Added the implementation of http.service in the each one of the services
 - Added the sort by name (asc, desc)
 - Added limit of registers of characters to 10
+- Added the funtionality of searcher, this functionality only makes macth when the search is == to the name that is searching
+  because the api haven't available the searcher for some letters
  
 ### Changed
 - Changed in the menu the item favorites, now it's acceded since home in the option "View all"
