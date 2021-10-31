@@ -44,7 +44,7 @@ export class CardComponent implements OnInit {
     this.apiCharacter.getOne(id).subscribe(response => {
       const [character] = response?.data?.results;
       this.record = character;
-      this.modal.open(this.record, false);
+      this.modal.open(this.record, false, false);
     });
   }
 

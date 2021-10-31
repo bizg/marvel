@@ -9,7 +9,8 @@ export class AlertService {
             icon: 'success',
             title: title || 'Exíto al realizar la operación',
             text: text,
-            confirmButtonText: 'Cerrar'
+            confirmButtonText: 'Cerrar',
+            confirmButtonColor: '#4b4140'
         });
     }
 
@@ -18,7 +19,8 @@ export class AlertService {
             icon: 'error',
             title: title || 'Oops...',
             text: text,
-            confirmButtonText: 'Cerrar'
+            confirmButtonText: 'Cerrar',
+            confirmButtonColor: '#4b4140'
         });
     }
 
