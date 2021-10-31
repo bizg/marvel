@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Character } from '@home/shared/model/character.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,11 @@ export class FavoriteService {
     data = data.filter((e: { id: number; }) => e.id != id);
     localStorage.removeItem('favorites');
     localStorage.setItem('favorites',JSON.stringify(data));
+  }
+
+  add(data: Character) {
+    let favorites = JSON.parse(localStorage.getItem('favorites')!);
+    favorites = [...favorites, data];
   }
 
   randomDate(date1:string, date2:string){

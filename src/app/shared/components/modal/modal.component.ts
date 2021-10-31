@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { AlertService } from '@shared/services/alert.service';
 
 @Component({
   selector: 'app-modal',
@@ -13,7 +14,9 @@ export class ModalComponent implements OnInit {
   modal: boolean = false;
   image!: string;
 
-  constructor() { }
+  constructor(
+    private alertService: AlertService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +34,14 @@ export class ModalComponent implements OnInit {
     if(this.isComic) {
       this.data?.emit(this.record);
     }
+  }
+
+  noAdd() {
+    this.alertService.infoAlert('The characters can\'t be add to favorites');
+  }
+
+  noAvailable() {
+    this.alertService.infoAlert('This funtionality it\'s not available now');
   }
 
 }
