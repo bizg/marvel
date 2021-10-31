@@ -39,7 +39,7 @@ export class FavoriteComponent implements OnInit {
   getOne(id:number) {
       const [record] = this.favorites.filter((e: {id: number}) => e.id == id);
       console.log(record);
-      this.modal.open(record, true, true);
+      this.modal.open(record, true, false);
   }
 
   add(data: any) {
