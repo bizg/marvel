@@ -21,5 +21,9 @@ export class ComicService {
     return this.http.doGet(`${environment.api}v1/public/comics`,{params})
   }
 
+  getOne(uri: string) {
+    return this.http.doGet(`${uri}`)
+  }
+
 
 }

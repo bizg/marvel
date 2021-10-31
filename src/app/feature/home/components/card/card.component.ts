@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Character } from '@home/shared/model/character.model';
 import { CharacterService } from '@home/shared/services/character/character.service';
+import { ComicService } from '@home/shared/services/comic/comic.service';
 import { ModalComponent } from '@shared/components/modal/modal.component';
 import { fromEvent } from 'rxjs';
 
@@ -18,15 +19,8 @@ export class CardComponent implements OnInit {
 
   constructor(
     private apiCharacter: CharacterService,
+    private apiComic: ComicService
   ) { }
-
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   console.log(changes);
-  //   this.helper.send.subscribe(data => this.search = data);
-  //   if(!this.search) {
-  //     this.doSearch();
-  //   }
-  // }
 
   ngOnInit(): void {
     this.get();
@@ -45,6 +39,15 @@ export class CardComponent implements OnInit {
       const [character] = response?.data?.results;
       this.record = character;
       this.modal.open(this.record, false, false);
+    });
+  }
+
+  getOneComic(uri: string) {
+    this.apiComic.getOne(uri).subscribe(response => {
+      console.log(response);
+      const [comic] = response?.data?.results;
+      this.record = comic;
+      this.modal.open(this.record, true, true);
     });
   }
 

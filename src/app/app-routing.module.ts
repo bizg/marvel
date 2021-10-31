@@ -10,10 +10,6 @@ const routes: Routes = [
     path: 'favorites',
     loadChildren: () => import('@favorite/favorite.module').then(mod => mod.FavoriteModule)
   },
-  {
-    path: 'purchase',
-    loadChildren: () => import('@purchase/purchase.module').then(mod => mod.PurchaseModule)
-  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];

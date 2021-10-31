@@ -1,10 +1,5 @@
 export interface Character {
-  comics: [{
-    available: number;
-    items: {
-      name: string;
-    }
-  }];
+  [comics: string]: any;
   description: string;
   events: object;
   id: number;
