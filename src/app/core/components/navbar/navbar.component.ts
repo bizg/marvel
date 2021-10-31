@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CardComponent } from '@home/components/card/card.component';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(CardComponent) card!: CardComponent;
+  search!: string;
+
+  constructor(
+  ) { }
 
   ngOnInit(): void {
   }

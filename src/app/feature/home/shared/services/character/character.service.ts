@@ -32,4 +32,11 @@ export class CharacterService {
     return this.http.doGet(`${environment.api}v1/public/characters`, {params});
   }
 
+  getSearch(name: string) {
+    let params = {
+      name: name
+    };
+    return this.http.doGet(`${environment.api}v1/public/characters`, {params});
+  }
+
 }

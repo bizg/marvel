@@ -21,7 +21,10 @@ import { ModalComponent } from '@shared/components/modal/modal.component';
     SharedModule
   ],
   providers: [
-    ModalComponent
+    ModalComponent,
+  ],
+  exports: [
+    CardComponent
   ]
 })
 export class HomeModule { }
