@@ -25,9 +25,15 @@ straightforward as possible.
 - Added limit of registers of characters to 10
 - Added the funtionality of searcher, this functionality only makes macth when the search is == to the name that is searching
   because the api haven't available the searcher for some letters
+- Added the component of alerts
+- Added the funtionality of "add favorites"
+- Added validation on whether a favorite is already in the list, so you can't add it.
+- Added implementation "add favorites" in the module home in favorites
+- Added implementation "add favorites" in the module favorite
  
 ### Changed
 - Changed in the menu the item favorites, now it's acceded since home in the option "View all"
+- Chanded implementation of "random favorite", now you can add in anytime some random rafovorite
  
 ### Fixed
 - Deleted the files of favorite.service that doesn't use in anyway

@@ -1,10 +1,16 @@
-<div *ngIf="!favorites || favorites.length == 0">
-  Without favorites
+<div class="header-favorites">
+  <img src="assets/images/btn-favourites-primary.png" alt="favorites">
+  <h2>My Favorites</h2>
 </div>
-<div *ngIf="favorites && favorites.length > 0">
+<div class="empty-favorites" *ngIf="!favorites || favorites.length == 0">
+  <span>Without favorites</span>
+</div>
+<div class="comics" *ngIf="favorites && favorites.length > 0">
   <div class="header-comic" *ngFor="let item of favorites">
     <img src="assets/images/btn-delete.png" alt="trash" (click)="delete(item.id)">
-    <img src="{{item.thumbnail.path}}/portrait_incredible.{{item.thumbnail.extension}}" alt="{{item.thumbnail.path}}">
+    <img src="{{item.thumbnail.path}}/portrait_incredible.{{item.thumbnail.extension}}" alt="{{item.thumbnail.path}}" (click)="getOne(item.id)">
     <span>{{ item.title }}</span>
   </div>
 </div>
+
+<app-modal></app-modal>

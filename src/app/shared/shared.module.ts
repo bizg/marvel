@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ModalComponent } from './components/modal/modal.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AlertService } from './services/alert.service';
 
 
 
@@ -15,6 +16,10 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     FormsModule
   ],
-  exports: [ModalComponent]
+  exports: [ModalComponent],
+  providers: [
+    ModalComponent,
+    AlertService
+  ]
 })
 export class SharedModule { }

@@ -2,10 +2,10 @@
   <img src="assets/images/btn-favourites-primary.png" alt="favorites">
   <h2>My Favorites</h2>
 </div>
-<div class="empty-favorites" *ngIf="!favorites || favorites.length == 0">
+<div class="empty-favorites">
   <a (click)="getRandom()">Create random favorites</a>
   <br>
-  <span>Without favorites</span>
+  <span *ngIf="!favorites || favorites.length == 0">Without favorites</span>
 </div>
 <div class="comics" *ngIf="favorites && favorites.length > 0">
   <div class="header-comic" *ngFor="let item of favorites">
@@ -21,4 +21,4 @@
   </div>
 </div>
 
-<app-modal></app-modal>
+<app-modal (data)="add($event)"></app-modal>

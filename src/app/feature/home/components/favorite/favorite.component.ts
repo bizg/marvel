@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ComicService } from '@home/shared/services/comic/comic.service';
 import { FavoriteService } from '@home/shared/services/favorite/favorite.service';
 import { ModalComponent } from '@shared/components/modal/modal.component';
+import { AlertService } from '@shared/services/alert.service';
 
 @Component({
   selector: 'app-favorite',
@@ -16,7 +17,8 @@ export class FavoriteComponent implements OnInit {
 
   constructor(
     private apiComics: ComicService,
-    private apiFavorite: FavoriteService
+    private apiFavorite: FavoriteService,
+    private alertService: AlertService,
   ) { }
 
   ngOnInit(): void {
@@ -25,7 +27,7 @@ export class FavoriteComponent implements OnInit {
 
   getRandom() {
     this.apiComics.getRandom(this.apiFavorite.getStringDate()).subscribe(response => {
-      localStorage.setItem('favorites', JSON.stringify(response.data.results));
+      this.apiFavorite.setRandom(response);
       this.get();
     });
   }
@@ -37,7 +39,18 @@ export class FavoriteComponent implements OnInit {
   getOne(id:number) {
       const [record] = this.favorites.filter((e: {id: number}) => e.id == id);
       console.log(record);
-      this.modal.open(record, true);
+      this.modal.open(record, true, false);
+  }
+
+  add(data: any) {
+    if(this.apiFavorite.add(data)) {
+      this.alertService.successAlert('The comic was added successfuly');
+      this.get();
+      this.modal.close();
+    } else {
+      this.alertService.infoAlert('The comic can\'t added beacause it\'s already in the list')
+    }
+
   }
 
   delete(id:number) {

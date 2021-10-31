@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http } from '@core/modelo/http.model';
-import { Options } from '@core/modelo/options.model';
 import { environment } from 'src/environments/environment';
 import { ValidService } from './valid.service';
 

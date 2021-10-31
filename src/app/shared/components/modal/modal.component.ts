@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { AlertService } from '@shared/services/alert.service';
 
 @Component({
   selector: 'app-modal',
@@ -9,28 +10,45 @@ export class ModalComponent implements OnInit {
 
   record!: any;
   isComic!: boolean;
-  @Output() data? = new EventEmitter();
+  @Output() data = new EventEmitter<any>();
   modal: boolean = false;
   image!: string;
+  canAdd!: boolean;
 
-  constructor() { }
+  constructor(
+    private alertService: AlertService
+  ) { }
 
   ngOnInit(): void {
   }
 
-  open(data: any, isComic: boolean) {
+  open(data: any, isComic: boolean, canAdd: boolean) {
     this.modal = true;
     this.isComic = isComic;
     this.record = data;
+    this.canAdd = canAdd;
     this.image = `${this.record?.thumbnail?.path}/portrait_incredible.${this.record?.thumbnail?.extension}`;
     console.log(this.record);
   }
 
   close() {
     this.modal = false;
-    if(this.isComic) {
-      this.data?.emit(this.record);
+  }
+
+  add() {
+    this.data!.emit(this.record);
+  }
+
+  noAdd() {
+    if(this.isComic && !this.canAdd) {
+      this.alertService.infoAlert('The comic can\'t be add to favorites');
+    } else if(!this.isComic) {
+      this.alertService.infoAlert('The characters can\'t be add to favorites');
     }
+  }
+
+  noAvailable() {
+    this.alertService.infoAlert('This funtionality it\'s not available now');
   }
 
 }

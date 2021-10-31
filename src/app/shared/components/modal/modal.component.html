@@ -19,11 +19,15 @@
       </div>
     </div>
     <div class="modal-footer">
-      <a href="" class="btn-add">
+      <a [routerLink]="" class="btn-add" *ngIf="isComic && canAdd" (click)="add()">
         <img src="assets/images/btn-favourites-primary.png" alt="favorites">
         <span>ADDED TO FAVORITES</span>
       </a>
-      <a href="" class="btn-buy">
+      <a [routerLink]="" class="btn-add default" *ngIf="!isComic || !canAdd" (click)="noAdd()">
+        <img src="assets/images/btn-favourites-default.png" alt="favorites">
+        <span>ADDED TO FAVORITES</span>
+      </a>
+      <a [routerLink]="" class="btn-buy" (click)="noAvailable()">
         <img src="assets/images/shopping-cart-primary.png" alt="buy">
         <span>BUY FOR $3.99</span>
       </a>
