@@ -16,10 +16,10 @@ export class FavoriteService {
     localStorage.setItem('favorites',JSON.stringify(data));
   }
 
-  add(data: Character): boolean {
+  add(data: any): boolean {
     let favorites = JSON.parse(localStorage.getItem('favorites')!);
-    let canAdd = favorites.filter((e: {id: number}) => e.id == data.id);
-    if(!canAdd) {
+    let canAdd = favorites.filter((e: { id: number; }) => e.id == data.id);
+    if(canAdd.length == 0) {
       favorites = [...favorites, data];
       localStorage.removeItem('favorites');
       localStorage.setItem('favorites',JSON.stringify(favorites));

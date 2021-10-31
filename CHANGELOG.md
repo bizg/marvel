@@ -31,6 +31,7 @@ straightforward as possible.
 - Added implementation "add favorites" in the module home in favorites
 - Added implementation "add favorites" in the module favorite
 - Added list of comic per character
+- Added functionality "add favorites# in card.component
  
 ### Changed
 - Changed in the menu the item favorites, now it's acceded since home in the option "View all"
