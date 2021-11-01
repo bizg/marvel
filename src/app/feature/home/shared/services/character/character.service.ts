@@ -13,9 +13,10 @@ export class CharacterService {
     private http: HttpService,
   ) { }
 
-  get(): Observable<Http> {
+  get(offset?: number): Observable<Http> {
     let params = {
-      limit: environment.limitCharacters
+      limit: environment.limitCharacters,
+      offset: offset || 0
     };
     return this.http.doGet(`${environment.api}v1/public/characters`, {params});
   }

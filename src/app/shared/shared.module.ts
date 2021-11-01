@@ -4,22 +4,29 @@ import { ModalComponent } from './components/modal/modal.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AlertService } from './services/alert.service';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
 @NgModule({
   declarations: [
-    ModalComponent
+    ModalComponent,
+    PaginationComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
-  exports: [ModalComponent],
+  exports: [ModalComponent, PaginationComponent],
   providers: [
     ModalComponent,
     AlertService
+  ],
+  bootstrap: [
+    PaginationComponent
   ]
 })
 export class SharedModule { }
