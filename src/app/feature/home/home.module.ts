@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { CardComponent } from './components/card/card.component';
 import { SharedModule } from '@shared/shared.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SharedModule } from '@shared/shared.module';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule
   ],
   exports: [
     CardComponent

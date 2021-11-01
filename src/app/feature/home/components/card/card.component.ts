@@ -4,8 +4,10 @@ import { CharacterService } from '@home/shared/services/character/character.serv
 import { ComicService } from '@home/shared/services/comic/comic.service';
 import { FavoriteService } from '@home/shared/services/favorite/favorite.service';
 import { ModalComponent } from '@shared/components/modal/modal.component';
+import { PaginationComponent } from '@shared/components/pagination/pagination.component';
 import { AlertService } from '@shared/services/alert.service';
 import { fromEvent } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-card',
@@ -17,6 +19,9 @@ export class CardComponent implements OnInit {
   characters!: Character[];
   record!: Character;
   search!: string;
+  p: number = 1;
+  total: number | undefined;
+  @ViewChild(PaginationComponent) paginate!: PaginationComponent;
   @ViewChild(ModalComponent) modal!: ModalComponent;
 
   constructor(
@@ -34,7 +39,8 @@ export class CardComponent implements OnInit {
   get() {
     this.apiCharacter.get().subscribe(response => {
       this.characters = <any>response?.data?.results;
-      console.log(response.data.results);
+      this.total = response?.data?.total;
+      console.log(response);
     });
   }
 
@@ -86,6 +92,14 @@ export class CardComponent implements OnInit {
         } else {
           this.get();
         }
+    });
+  }
+
+  pageChanged(e: any) {
+    let offset = (e * environment.limitCharacters) - environment.limitCharacters;
+    this.p = e;
+    this.apiCharacter.get(offset).subscribe(response => {
+      this.characters = <any>response?.data?.results;
     });
   }
 
