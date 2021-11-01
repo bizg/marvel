@@ -1,64 +1,49 @@
-.navbar {
-  position: sticky;
-  left: 0;
-  top: 0;
+nav {
   width: 100%;
+  background: #2d2727;
 }
 
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
+nav .navbar {
+  padding: 2px 55px;
+  box-sizing: border-box;
+  vertical-align: middle;
 }
 
-.navbar ul li {
-  float: left;
+nav .navbar .logo img {
+  width: 150px;
 }
 
-.navbar ul li a {
-  display: block;
-  color: #fff;
-  text-align: center;
-  padding: 14px 16px;
-}
-
-.navbar ul li.logo img{
-  width: 130px;
-  height: 30px;
-}
-
-.navbar ul li.logo a {
-  padding: 6px 20px;
-}
-
-.navbar ul li.search {
-  float: right;
-  padding-right: 20px;
-}
-
-.navbar ul li.search a{
+nav .navbar .logo {
+  width: auto;
   display: inline-block;
-  padding: 0;
+  vertical-align: middle;
 }
 
-.navbar ul li.search a img {
-  width: 20px;
-  height: 20px;
+nav .navbar .search {
+  width: 80%;
+  display: inline-block;
+  text-align: center;
+}
+
+nav .navbar .search input[type="text"] {
+  padding: 10px;
+  width: 40%;
+  font-size: 17px;
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 2px;
+  color: #b3b3b3;
+  border: none;
+}
+
+nav .navbar .search input[type="text"]::placeholder {
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #b3b3b3;
+}
+
+nav .navbar .search .aSearch {
   position: relative;
-  right: 25px;
-  top: 5px;
-}
-
-.navbar ul li.search div {
-  padding: 6px 16px;
-}
-
-.navbar ul li.search input {
-  padding: 5px 30px;
-}
-
-.navbar ul li a:hover {
-  background-color: #111;
+  left: -50px;
+  top: 14px;
+  bottom: 0;
+  right: 0;
 }
