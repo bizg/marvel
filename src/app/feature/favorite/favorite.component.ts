@@ -27,7 +27,6 @@ export class FavoriteComponent implements OnInit {
   }
 
   getOne(id:number) {
-    console.log('hpola');
     const [record] = this.favorites.filter((e: {id: number}) => e.id == id);
     this.modal.open(record, true, false);
   }

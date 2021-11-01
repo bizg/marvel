@@ -22,13 +22,13 @@
   <div class="container_footer">
     <h5>Related comics</h5>
     <div>
-      <!-- <div *ngFor="let comic of item?.comics">
-        {{ comic?.items?.name }}
-      </div> -->
+      <div *ngFor="let comic of item?.comics?.items.slice(0,4)" (click)="getOneComic(comic.resourceURI)">
+        {{ comic.name }}
+      </div>
     </div>
   </div>
   <br>
 </div>
 
 
-<app-modal></app-modal>
+<app-modal (data)="add($event)"></app-modal>

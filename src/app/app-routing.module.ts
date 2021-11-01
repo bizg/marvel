@@ -11,8 +11,8 @@ const routes: Routes = [
     loadChildren: () => import('@favorite/favorite.module').then(mod => mod.FavoriteModule)
   },
   {
-    path: 'purchase',
-    loadChildren: () => import('@purchase/purchase.module').then(mod => mod.PurchaseModule)
+    path: 'comics/:id',
+    loadChildren: () => import('@comic/comic.module').then(mod => mod.ComicModule)
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }

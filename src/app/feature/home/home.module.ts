@@ -20,6 +20,9 @@ import { SharedModule } from '@shared/shared.module';
   ],
   exports: [
     CardComponent
+  ],
+  providers: [
+    FavoriteComponent
   ]
 })
 export class HomeModule { }
