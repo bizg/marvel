@@ -10,11 +10,6 @@
   vertical-align: middle;
 }
 
-.header-favorites img {
-  display: inline-block;
-  vertical-align: middle;
-}
-
 .header-favorites h2 {
   display: inline-block;
   vertical-align: middle;
@@ -60,6 +55,11 @@
 
 .comics .header-comic .images {
   padding-left: 11%;
+}
+
+.comics .header-comic .images .principal,
+.comics .header-comic .images .trash{
+  cursor: pointer;
 }
 
 .comics .header-comic h4 {
