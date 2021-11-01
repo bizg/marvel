@@ -30,11 +30,11 @@
       "@home/*": [
         "src/app/feature/home/*"
       ],
-      "@purchase/*": [
-        "src/app/feature/purchase/*"
-      ],
       "@favorite/*": [
         "src/app/feature/favorite/*"
+      ],
+      "@comic/*": [
+        "src/app/feature/comic/*"
       ]
     }
   },

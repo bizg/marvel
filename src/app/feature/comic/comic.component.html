@@ -1,0 +1,21 @@
+<div>
+  <img src="assets/images/btn_arrow_left.png" alt="favorites">
+  <a [routerLink]="['/home']">Back to home</a>
+</div>
+<div class="header-favorites">
+  <img src="assets/images/btn-favourites-primary.png" alt="favorites">
+  <h2>Comics</h2>
+</div>
+<div class="comics" *ngIf="comics && comics.length > 0">
+  <div class="header-comic" *ngFor="let item of comics">
+    <img src="{{item.thumbnail.path}}/portrait_incredible.{{item.thumbnail.extension}}" alt="{{item.thumbnail.path}}" (click)="getOne(item.resourceURI)">
+    <span>{{ item.title }}</span>
+  </div>
+</div>
+
+<div>
+  <img src="assets/images/btn_arrow_left.png" alt="favorites">
+  <a [routerLink]="['/home']">Back to home</a>
+</div>
+
+<app-modal (data)="add($event)"></app-modal>

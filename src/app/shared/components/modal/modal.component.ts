@@ -14,6 +14,7 @@ export class ModalComponent implements OnInit {
   modal: boolean = false;
   image!: string;
   canAdd!: boolean;
+  id!: number;
 
   constructor(
     private alertService: AlertService
@@ -27,6 +28,7 @@ export class ModalComponent implements OnInit {
     this.isComic = isComic;
     this.record = data;
     this.canAdd = canAdd;
+    this.id = data.id;
     this.image = `${this.record?.thumbnail?.path}/portrait_incredible.${this.record?.thumbnail?.extension}`;
     console.log(this.record);
   }

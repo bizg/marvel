@@ -6,7 +6,6 @@ import { FavoriteService } from '@home/shared/services/favorite/favorite.service
 import { ModalComponent } from '@shared/components/modal/modal.component';
 import { AlertService } from '@shared/services/alert.service';
 import { fromEvent } from 'rxjs';
-import { FavoriteComponent } from '../favorite/favorite.component';
 
 @Component({
   selector: 'app-card',
@@ -64,7 +63,6 @@ export class CardComponent implements OnInit {
     } else {
       this.alertService.infoAlert('The comic can\'t added beacause it\'s already in the list')
     }
-
   }
 
   doSearch() {

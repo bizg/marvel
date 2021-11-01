@@ -12,7 +12,7 @@
       <div class="modal-body-text">
         <h2>{{ isComic ? record?.title : record?.name }}</h2>
         <p>{{ record?.description || 'Without description' }}</p>
-        <a [routerLink]="['/comics/:id']" *ngIf="!isComic">
+        <a [routerLink]="['/comics/'+id]" *ngIf="!isComic">
           View all comics
           <img src="assets/images/link-arrow.png" alt="link_arrow">
         </a>
