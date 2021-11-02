@@ -43,3 +43,4 @@ straightforward as possible.
 ### Fixed
 - Deleted the files of favorite.service that doesn't use in anyway
 - Added the corrections of the http.services when any service sended a param crashed
+- Added the corrections of the modules in the publish 

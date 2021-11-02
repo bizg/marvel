@@ -10,7 +10,11 @@ export class AlertService {
             title: title || 'Exíto al realizar la operación',
             text: text,
             confirmButtonText: 'Cerrar',
-            confirmButtonColor: '#4b4140'
+            confirmButtonColor: '#4b4140',
+            customClass: {
+              confirmButton: 'confirButtonCard',
+              closeButton: 'confirButtonCard',
+            }
         });
     }
 
@@ -20,7 +24,7 @@ export class AlertService {
             title: title || 'Oops...',
             text: text,
             confirmButtonText: 'Cerrar',
-            confirmButtonColor: '#4b4140'
+            confirmButtonColor: '#4b4140',
         });
     }
 

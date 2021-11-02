@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { FavoriteService } from '@home/shared/services/favorite/favorite.service';
 import { AlertService } from '@shared/services/alert.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class ModalComponent implements OnInit {
   id!: number;
 
   constructor(
-    private alertService: AlertService
+    private alertService: AlertService,
+    private apiFavorite: FavoriteService
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +40,8 @@ export class ModalComponent implements OnInit {
   }
 
   add() {
-    this.data!.emit(this.record);
+    let response = this.apiFavorite.add(this.record);
+    this.data!.emit(response);
   }
 
   noAdd() {
