@@ -42,7 +42,6 @@ La aplicacion esta divida en 3 carpetas:
 La aplicacion esta contratuida con Lazy Loading para evitar la carga perezosa de modulos de angular.
 La aplicacion cuenta son encarpetamientos amigables para evitar que las importaciones sean demasiado largas, esta configuración se encuentra en el tsconfig.json.
 Cuenta con un changelog.md donde estan cada uno de los cambios realizados en la aplicacion a medida que se fue desarrollando.
-Cuenta con pruebas unitarias que pueden ser ejecutadas con el comando `ng test`.
 La aplicación cuenta con una persistencia de datos para que al ingresar nuevamente no se pierdan los datos que fueron almacenados (los comics favoritos agregados).
 
 ## Sobre la aplicación
