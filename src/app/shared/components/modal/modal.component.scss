@@ -11,13 +11,13 @@
 .modal .modal-dialog {
   background: #fff;
   position: relative;
-  margin: 25vh auto;
-  box-shadow: 1px 1px 20px 10px rgba(0, 0, 0, 0.1);
-  height: 50vh;
+  margin: 17vh auto;
+  box-shadow: 1px 1px 20px 10px rgb(0 0 0 / 10%);
+  height: 65vh;
   width: 50%;
 }
 
-.modal .modal-close{
+.modal .modal-close {
   width: 100%;
   text-align: right;
   padding: 10px;
@@ -53,7 +53,7 @@
   line-height: 25px;
   font-size: 17px;
   font-weight: 100;
-  color: #857F80;
+  color: #857f80;
   letter-spacing: 1px;
 }
 
@@ -78,7 +78,7 @@
 
 .default {
   background-color: #f0f0f0 !important;
-  color: #4b4140 !important
+  color: #4b4140 !important;
 }
 
 .modal-footer a.btn-buy {
@@ -88,11 +88,10 @@
 .modal-footer a.btn-add,
 .modal-footer a.btn-buy {
   text-decoration: none;
-  color: #EE1D23;
+  color: #ee1d23;
   font-weight: 900;
   letter-spacing: 1px;
 }
-
 
 .modal-footer a.btn-add img,
 .modal-footer a.btn-add span,
@@ -112,4 +111,63 @@
 
 .show {
   display: block;
+}
+
+.btn {
+  color: #fff;
+  background-color: #ec1f23;
+  font-size: 15px;
+  padding: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  color: #ec1f23;
+  background-color: #fff;
+  border: 1px solid #ec1f23;
+  font-size: 15px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+  .modal .modal-dialog {
+    margin: 20vh auto;
+    height: 60vh;
+    width: 69%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal .modal-dialog {
+    margin: 20vh auto;
+    height: 60vh;
+    width: 89%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .modal .modal-dialog {
+    margin: 4vh auto;
+    height: 92vh;
+    width: 89%;
+  }
+
+  .modal .modal-body .modal-body-img {
+    text-align: center;
+    width: 100%;
+  }
+
+  .modal .modal-body .modal-body-text {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .modal-footer a.btn-add img,
+  .modal-footer a.btn-buy img {
+    display: none;
+  }
 }

@@ -1,6 +1,7 @@
 <div class="header">
   <div class="content_h2">
-    <img src="assets/images/characters.png" alt="characters"><h2>Characters</h2>
+    <img src="assets/images/characters.png" alt="characters">
+    <h2>Characters</h2>
   </div>
   <div class="content_select">
     <select (change)="sortData($event)">
@@ -10,7 +11,39 @@
     </select>
   </div>
 </div>
+
 <div class="container_character" *ngFor="let item of characters | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }">
+  <div class="content_character">
+    <div class="container_img">
+      <img src="{{item.thumbnail.path}}/portrait_incredible.{{item.thumbnail.extension}}">
+    </div>
+    <div class="container_text">
+      <h2>{{ item.name }}</h2>
+      <p>{{ (item.description || 'Without description' | slice:0:210)+'...'}}</p>
+      <a (click)="getOne(item.id)">VIEW MORE</a>
+    </div>
+    <div class="container_footer">
+      <h4>Related comics</h4>
+      <div class="content_footer">
+        <div class="comic" *ngFor="let comic of item?.comics?.items.slice(0,4)">
+          <a (click)="getOneComic(comic.resourceURI)">
+            {{ comic.name }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-pagination (pageChange)="pageChanged($event)"></app-pagination>
+<app-modal (data)="add($event)"></app-modal>
+
+
+
+
+
+
+<!-- <div class="container_character" *ngFor="let item of characters | paginate: { itemsPerPage: 10, currentPage: p, totalItems: total }">
   <div class="container_img">
     <img src="{{item.thumbnail.path}}/portrait_incredible.{{item.thumbnail.extension}}" alt="" srcset="">
   </div>
@@ -31,4 +64,4 @@
 </div>
 
 <app-pagination (pageChange)="pageChanged($event)"></app-pagination>
-<app-modal (data)="add($event)"></app-modal>
+<app-modal (data)="add($event)"></app-modal> -->
