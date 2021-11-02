@@ -57,3 +57,26 @@
 .content .back a:hover {
   color: #ec1f23;
 }
+
+@media screen and (max-width: 768px) {
+  .comics .header-comic {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .comics .header-comic {
+    width: 83%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .comics .header-comic {
+    width: 95%;
+  }
+
+  .content {
+    margin: 0px;
+    box-sizing: border-box;
+  }
+}

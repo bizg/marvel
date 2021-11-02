@@ -1,11 +1,36 @@
+.content {
+  display: table;
+}
+
 .container_card {
   background-color: #f4f4f4;
-  float: left;
+  display: table-cell;
   width: 75%;
 }
 
 .container_favorite {
   background-color: #ebebeb;
-  float: left;
+  display: table-cell;
   width: 25%;
+}
+
+@media screen and (max-width: 768px) {
+  .container_character {
+    width: 100%;
+    display: block;
+  }
+
+  .content {
+    display: block;
+  }
+
+  .container_card {
+    display: block;
+    width: 100%;
+  }
+
+  .container_favorite {
+    display: block;
+    width: 100%;
+  }
 }

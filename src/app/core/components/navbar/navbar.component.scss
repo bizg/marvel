@@ -47,3 +47,41 @@ nav .navbar .search .aSearch {
   bottom: 0;
   right: 0;
 }
+
+@media screen and (max-width: 768px) {
+  nav .navbar .search {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav .navbar {
+    padding: 2px 10px;
+  }
+
+  nav .navbar .search {
+    width: 55%;
+  }
+
+  nav .navbar .search input[type="text"] {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  nav .navbar .search .aSearch {
+    position: relative;
+    left: -35px;
+  }
+
+  nav .navbar .search {
+    width: 47%;
+  }
+  nav .navbar .search {
+    width: 50%;
+  }
+
+  nav .navbar .search input[type="text"] {
+    width: 58%;
+  }
+}

@@ -3,6 +3,7 @@
   float: left;
   margin: 30px 3px 10px 0px;
   height: 340px;
+  box-sizing: border-box;
 }
 
 .content_character {
@@ -10,6 +11,7 @@
   width: 90%;
   margin-left: 10%;
   height: 340px;
+  box-sizing: border-box;
 }
 
 .container_character .container_img,
@@ -18,7 +20,7 @@
 }
 
 .container_character .container_img {
-  width: 40%;
+  width: 200px;
 }
 
 .container_character .container_img img {
@@ -33,7 +35,7 @@
 }
 
 .container_character .container_text {
-  width: 60%;
+  width: calc(100% - 200px);
   margin: 0px;
   position: relative;
   top: -40px;
@@ -78,6 +80,7 @@
 .container_character .container_footer {
   width: 100%;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .container_character .container_footer .content_footer {
@@ -113,10 +116,10 @@
 }
 
 .header .content_h2 {
-  width: 49%;
+  width: 48%;
   margin: 0px;
   padding: 0px;
-  float: left;
+  display: inline-block;
 }
 
 .header .content_h2 img {
@@ -132,7 +135,7 @@
 }
 
 .header .content_select {
-  float: right;
+  display: inline-block;
   text-align: right;
   margin: 15px 25px 0px 0px;
   width: 48%;
@@ -145,4 +148,58 @@
   border: 1px solid #dcdcdc;
   box-sizing: border-box;
   color: #5d5352;
+}
+
+@media screen and (max-width: 1024px) {
+  .container_character {
+    width: 100%;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container_character {
+    width: 95%;
+    display: block;
+  }
+
+  .container_character .container_text p {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .container_character .container_img {
+    width: 150px;
+  }
+
+  .container_character .container_img img {
+    height: 160px;
+    width: 160px;
+  }
+
+  .container_character .container_text {
+    width: calc(100% - 150px);
+  }
+
+  .header .content_h2 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .header .content_h2 img {
+    margin: 0px;
+    display: inline-block;
+    float: none;
+  }
+
+  .header .content_h2 h2 {
+    display: inline-block;
+  }
+
+  .header .content_select {
+    width: 100%;
+    text-align: center;
+    margin: 0px auto;
+  }
 }
