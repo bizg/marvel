@@ -13,11 +13,12 @@ export class CharacterService {
     private http: HttpService,
   ) { }
 
-  get(offset?: number): Observable<Http> {
-    let params = {
+  get(offset?: number, sort?: string): Observable<Http> {
+    let params: any = {
       limit: environment.limitCharacters,
       offset: offset || 0
     };
+    if(sort != '' && sort) params.orderBy = sort;
     return this.http.doGet(`${environment.api}v1/public/characters`, {params});
   }
 
@@ -25,11 +26,12 @@ export class CharacterService {
     return this.http.doGet(`${environment.api}v1/public/characters/${id}`);
   }
 
-  getSortBy(sort: string): Observable<Http> {
-    let params = {
+  getSortBy(sort: string, search?: string): Observable<Http> {
+    let params: any = {
       orderBy: sort,
       limit: environment.limitCharacters
     };
+    if(search != '' && search) params.name = search;
     return this.http.doGet(`${environment.api}v1/public/characters`, {params});
   }
 

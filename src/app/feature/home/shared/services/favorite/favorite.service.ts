@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
-import { Character } from '@home/shared/model/character.model';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FavoriteService {
+
+  @Output() favorites = new EventEmitter();
 
   constructor() { }
 
@@ -16,15 +17,17 @@ export class FavoriteService {
     localStorage.setItem('favorites',JSON.stringify(data));
   }
 
-  add(data: any): boolean {
+  add(data: any): any {
     let favorites = JSON.parse(localStorage.getItem('favorites')!);
     let canAdd = favorites.filter((e: { id: number; }) => e.id == data.id);
     if(canAdd.length == 0) {
       favorites = [...favorites, data];
       localStorage.removeItem('favorites');
       localStorage.setItem('favorites',JSON.stringify(favorites));
+      this.favorites.emit(favorites);
       return true;
     } else {
+      this.favorites.emit(false);
       return false;
     }
   }

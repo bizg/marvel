@@ -12,6 +12,7 @@ html, body{
   margin-left: 0;
   margin-bottom: 2rem !important;
   text-align: center;
+  display: flow-root;
 }
 
 .ngx-pagination li {
@@ -32,6 +33,10 @@ html, body{
 
 .ngx-pagination .pagination-previous {
   padding: 5px 16px !important;
+}
+
+.ngx-pagination .disabled {
+  padding: 8px 16px !important;
 }
 
 .ngx-pagination .current {

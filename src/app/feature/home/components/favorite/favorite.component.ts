@@ -18,10 +18,12 @@ export class FavoriteComponent implements OnInit {
   constructor(
     private apiComics: ComicService,
     private apiFavorite: FavoriteService,
+    private alertService: AlertService
   ) { }
 
   ngOnInit(): void {
     this.get();
+    this.loadFavorite();
   }
 
   getRandom() {
@@ -44,6 +46,22 @@ export class FavoriteComponent implements OnInit {
   delete(id:number) {
     this.apiFavorite.delete(id);
     this.get();
+  }
+
+  loadFavorite() {
+    this.apiFavorite.favorites.subscribe(data => {
+      if(data) this.favorites = data;
+      this.add(data);
+    });
+  }
+
+  add(data: any) {
+    if(!data) {
+      this.alertService.infoAlert('The comic can\'t added beacause it\'s already in the list')
+    } else {
+      this.alertService.successAlert('The comic was added successfuly');
+      this.modal.close();
+    }
   }
 
 }

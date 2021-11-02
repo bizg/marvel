@@ -22,7 +22,7 @@ export class ComicService {
   }
 
   getOne(uri: string) {
-    return this.http.doGet(`${uri}`)
+    return this.http.doGet(`${uri.replace('http','https')}`)
   }
 
 

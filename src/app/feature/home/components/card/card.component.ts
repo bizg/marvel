@@ -21,6 +21,7 @@ export class CardComponent implements OnInit {
   search!: string;
   p: number = 1;
   total: number | undefined;
+  sort: string = '';
   @ViewChild(PaginationComponent) paginate!: PaginationComponent;
   @ViewChild(ModalComponent) modal!: ModalComponent;
 
@@ -37,10 +38,10 @@ export class CardComponent implements OnInit {
   }
 
   get() {
-    this.apiCharacter.get().subscribe(response => {
+    this.apiCharacter.get(0,this.sort).subscribe(response => {
       this.characters = <any>response?.data?.results;
       this.total = response?.data?.total;
-      console.log(response);
+      this.p = 1;
     });
   }
 
@@ -62,24 +63,26 @@ export class CardComponent implements OnInit {
   }
 
   add(data: any) {
-    console.log(data.id);
-    if(this.apiFavorite.add(data)) {
+    if(!data) {
+      this.alertService.infoAlert('The comic can\'t added beacause it\'s already in the list')
+    } else {
       this.alertService.successAlert('The comic was added successfuly');
       this.modal.close();
-    } else {
-      this.alertService.infoAlert('The comic can\'t added beacause it\'s already in the list')
     }
   }
 
   doSearch() {
     this.apiCharacter.getSearch(this.search).subscribe(response => {
       this.characters = <any>response?.data?.results;
+      this.total = response?.data?.total;
     });
   }
 
   sortData(sort: Event) {
-    this.apiCharacter.getSortBy((<HTMLInputElement>sort.target).value).subscribe(response => {
+    this.sort = (<HTMLInputElement>sort.target).value;
+    this.apiCharacter.getSortBy(this.sort, this.search).subscribe(response => {
       this.characters = <any>response?.data?.results;
+      this.p = 1;
     });
   }
 
@@ -98,7 +101,7 @@ export class CardComponent implements OnInit {
   pageChanged(e: any) {
     let offset = (e * environment.limitCharacters) - environment.limitCharacters;
     this.p = e;
-    this.apiCharacter.get(offset).subscribe(response => {
+    this.apiCharacter.get(offset,this.sort).subscribe(response => {
       this.characters = <any>response?.data?.results;
     });
   }
