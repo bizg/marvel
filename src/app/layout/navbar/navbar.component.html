@@ -7,5 +7,10 @@
       <input type="text" class="inputSearch" placeholder="Search">
       <a class="aSearch"><img src="assets/images/search.png" alt="logo"></a>
     </div>
+    <div class="toggle">
+      <input type="checkbox" id="toggle" [checked]="checked == 'true'" (change)="changeTheme($event)" />
+      <label for="toggle"></label>
+    </div>
+    <button (click)="changeTheme2()">hola este es el boton de la vida</button>
   </div>
 </nav>

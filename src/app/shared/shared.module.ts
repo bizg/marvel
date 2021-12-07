@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AlertService } from './services/alert.service';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { DarkmodeService } from './services/darkmode.service';
 
 
 
@@ -23,7 +24,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
   exports: [ModalComponent, PaginationComponent],
   providers: [
     ModalComponent,
-    AlertService
+    AlertService,
+    DarkmodeService
   ],
   bootstrap: [
     PaginationComponent

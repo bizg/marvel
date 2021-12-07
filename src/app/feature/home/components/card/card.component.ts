@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Character } from '@home/shared/model/character.model';
 import { CharacterService } from '@home/shared/services/character/character.service';
 import { ComicService } from '@home/shared/services/comic/comic.service';
-import { FavoriteService } from '@home/shared/services/favorite/favorite.service';
 import { ModalComponent } from '@shared/components/modal/modal.component';
 import { PaginationComponent } from '@shared/components/pagination/pagination.component';
 import { AlertService } from '@shared/services/alert.service';
@@ -19,16 +18,15 @@ export class CardComponent implements OnInit {
   characters!: Character[];
   record!: Character;
   search!: string;
-  p: number = 1;
+  p = 1;
   total: number | undefined;
-  sort: string = '';
+  sort = '';
   @ViewChild(PaginationComponent) paginate!: PaginationComponent;
   @ViewChild(ModalComponent) modal!: ModalComponent;
 
   constructor(
     private apiCharacter: CharacterService,
     private apiComic: ComicService,
-    private apiFavorite: FavoriteService,
     private alertService: AlertService,
   ) { }
 
@@ -39,7 +37,7 @@ export class CardComponent implements OnInit {
 
   get() {
     this.apiCharacter.get(0,this.sort).subscribe(response => {
-      this.characters = <any>response?.data?.results;
+      this.characters = <never>response?.data?.results;
       this.total = response?.data?.total;
       this.p = 1;
     });
@@ -47,7 +45,7 @@ export class CardComponent implements OnInit {
 
   getOne(id:number) {
     this.apiCharacter.getOne(id).subscribe(response => {
-      const [character] = response?.data?.results;
+      const [character] = response?.data?.results || undefined;
       this.record = character;
       this.modal.open(this.record, false, false);
     });
@@ -56,13 +54,13 @@ export class CardComponent implements OnInit {
   getOneComic(uri: string) {
     this.apiComic.getOne(uri).subscribe(response => {
       console.log(response);
-      const [comic] = response?.data?.results;
+      const [comic] = response?.data?.results || undefined;
       this.record = comic;
       this.modal.open(this.record, true, true);
     });
   }
 
-  add(data: any) {
+  add(data: Character) {
     if(!data) {
       this.alertService.infoAlert('The comic can\'t added beacause it\'s already in the list')
     } else {
@@ -73,7 +71,7 @@ export class CardComponent implements OnInit {
 
   doSearch() {
     this.apiCharacter.getSearch(this.search).subscribe(response => {
-      this.characters = <any>response?.data?.results;
+      this.characters = <never>response?.data?.results;
       this.total = response?.data?.total;
     });
   }
@@ -81,13 +79,13 @@ export class CardComponent implements OnInit {
   sortData(sort: Event) {
     this.sort = (<HTMLInputElement>sort.target).value;
     this.apiCharacter.getSortBy(this.sort, this.search).subscribe(response => {
-      this.characters = <any>response?.data?.results;
+      this.characters = <never>response?.data?.results;
       this.p = 1;
     });
   }
 
   waitForEvent() {
-    let click = fromEvent(document.querySelector('.aSearch')!, 'click');
+    const click = fromEvent(document.querySelector('.aSearch')!, 'click');
     click.subscribe(() => {
       this.search = (document.querySelector('.inputSearch') as HTMLInputElement).value;
         if(this.search != '') {
@@ -98,11 +96,11 @@ export class CardComponent implements OnInit {
     });
   }
 
-  pageChanged(e: any) {
-    let offset = (e * environment.limitCharacters) - environment.limitCharacters;
+  pageChanged(e: number) {
+    const offset = (e * environment.limitCharacters) - environment.limitCharacters;
     this.p = e;
     this.apiCharacter.get(offset,this.sort).subscribe(response => {
-      this.characters = <any>response?.data?.results;
+      this.characters = <never>response?.data?.results;
     });
   }
 

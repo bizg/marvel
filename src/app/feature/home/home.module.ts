@@ -24,7 +24,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CardComponent
   ],
   providers: [
-    FavoriteComponent
+    FavoriteComponent,
   ]
 })
 export class HomeModule { }

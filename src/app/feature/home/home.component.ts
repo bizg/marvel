@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DarkmodeService } from '@shared/services/darkmode.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  currentTheme!: any;
 
-  ngOnInit(): void {
+  constructor(private darkmodeService: DarkmodeService) { }
+
+  ngOnInit() {
+    console.log('a');
+
+    this.load();
+  }
+
+  load() {
+    this.darkmodeService.darkEmit.subscribe( data => {
+      console.log('holaaa');
+      this.currentTheme = data;
+    });
   }
 
 }
