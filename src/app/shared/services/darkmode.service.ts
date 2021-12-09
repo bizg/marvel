@@ -15,7 +15,7 @@ export class DarkmodeService {
     this.currentTheme = this.currentTheme === "light" ? "dark" : "light";
     localStorage.setItem('theme', this.currentTheme);
     localStorage.setItem('input', value);
-    this.darkEmit.emit('g');
+    this.darkEmit.emit(this.currentTheme);
     console.log('hola');
     return this.getTheme();
   }
