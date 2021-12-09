@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   constructor(private darkmodeService: DarkmodeService) { }
 
   ngOnInit() {
+    this.mode = this.darkmodeService.getTheme();
     this.loadMode();
   }
 
